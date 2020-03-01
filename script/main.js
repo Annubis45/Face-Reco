@@ -70,8 +70,13 @@ video.addEventListener("playing", () => {
       document.getElementById("age").innerText = `Age - ${Math.round(interpolatedAge)}`;
       document.getElementById("gender").innerText = `Gender - ${gender}`;
       document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
+      
+      let emotionList = document.getElementById("emotionList");
+      emotionList.innerHTML = '';
+      Object.keys(expressions).forEach(element => emotionList.innerHTML += `<tr><th>${element} </th><th>${Math.round(expressions[element]*100)}</th></tr>`);
+
     }
-  }, 10);
+  }, 100);
 });
 
 function interpolateAgePredictions(age) {
